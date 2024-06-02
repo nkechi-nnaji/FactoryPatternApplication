@@ -16,23 +16,23 @@ class MainActivity : AppCompatActivity() {
         viewBinding =  DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         viewBinding.mailBtn.setOnClickListener {
-            extracted("mail")
+            getServerSolution("mail")
         }
 
         viewBinding.ftpBtn.setOnClickListener {
-            extracted("ftp")
+            getServerSolution("ftp")
         }
 
         viewBinding.appBtn.setOnClickListener {
-            extracted("app")
+            getServerSolution("app")
         }
 
         viewBinding.macBtn.setOnClickListener {
-            extracted("other")
+            getServerSolution("other")
         }
     }
 
-    private fun extracted(serverType : String) {
+    private fun getServerSolution(serverType : String) {
         val server: IServer = ServerFactory().getServer(serverType = serverType)
         Toast.makeText(this, "${server.resolve()}", Toast.LENGTH_LONG).show()
     }
